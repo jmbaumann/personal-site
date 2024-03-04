@@ -26,7 +26,7 @@ export default function Projects() {
         <title>Projects | Jeremy Baumann</title>
       </Head>
       <Layout>
-        <div className="px-16 text-xl">
+        <div className="px-4 text-xl lg:px-16">
           <h1 className="mt-10 text-2xl font-bold">Projects</h1>
           <div>
             <InReview />
@@ -63,24 +63,24 @@ export function InReview() {
               ranking from all users.
             </p>
 
-            <hr className="my-4 w-full" />
+            <hr className="my-2 w-full lg:my-4" />
 
-            <div className="flex flex-row">
+            <div className="flex flex-col lg:flex-row">
               <div className="ml-2">
                 <h3 className="text-lg">Stack</h3>
-                <ul className="ml-2 list-disc">
-                  <li>Typescript</li>
-                  <li>React (Next.js)</li>
-                  <li>Tailwind CSS</li>
-                  {/* <li>shadcn/ui</li> */}
-                  <li>tRPC</li>
-                  <li>Prisma</li>
-                  <li>Vercel</li>
-                  <li>PlanetScale</li>
-                  <li>OMDb API</li>
+                <ul className="ml-2 flex list-disc flex-wrap justify-evenly lg:block">
+                  <li className="mx-2">Typescript</li>
+                  <li className="mx-2">React (Next.js)</li>
+                  <li className="mx-2">Tailwind CSS</li>
+                  {/* <li className="mx-2">shadcn/ui</li> */}
+                  <li className="mx-2">tRPC</li>
+                  <li className="mx-2">Prisma</li>
+                  <li className="mx-2">Vercel</li>
+                  <li className="mx-2">PlanetScale</li>
+                  <li className="mx-2">OMDb API</li>
                 </ul>
               </div>
-              <Carousel className="ml-auto mr-12 w-[400px]">
+              <Carousel className="ml-auto mr-12 w-[270px] lg:w-[400px]">
                 <CarouselContent>
                   <CarouselItem className="items-center">
                     <Image
