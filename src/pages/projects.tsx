@@ -80,7 +80,7 @@ export function InReview() {
                   <li className="mx-2">OMDb API</li>
                 </ul>
               </div>
-              <Carousel className="ml-auto mr-12 w-[270px] lg:w-[400px]">
+              <Carousel className="lg:ml-auto lg:mr-12 lg:w-[400px]">
                 <CarouselContent>
                   <CarouselItem className="items-center">
                     <Image
@@ -115,10 +115,13 @@ export function InReview() {
                     />
                   </CarouselItem>
                 </CarouselContent>
-                <CarouselPrevious className="text-black" />
-                <CarouselNext className="text-black" />
+                <CarouselPrevious className="hidden text-black lg:inline-flex" />
+                <CarouselNext className="hidden text-black lg:inline-flex" />
               </Carousel>
             </div>
+            <small className="text-center lg:hidden">
+              Swipe to view more images
+            </small>
           </div>
         </div>
       </CardContent>
@@ -176,6 +179,7 @@ function Consensu5() {
             width={200}
             height={400}
             alt="CONSESNU5 Screenshot #1"
+            className="max-h-[400px]"
           />
         </div>
       </CardContent>
