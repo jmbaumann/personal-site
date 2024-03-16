@@ -14,7 +14,6 @@ const useLocalStorage = <T>(
       // localStorage then return it
       // Else set default value in
       // localStorage and then return it
-      console.log(value);
       if (value) {
         return JSON.parse(value) as T;
       } else {

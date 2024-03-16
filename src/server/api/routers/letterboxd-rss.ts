@@ -47,7 +47,6 @@ export const letterboxdRSSRouter = createTRPCRouter({
               },
             },
           );
-          console.log(data);
           movie.data = data.results.length > 0 ? data.results[0] : undefined;
         }
       }

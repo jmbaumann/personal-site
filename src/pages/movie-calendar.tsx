@@ -31,7 +31,15 @@ export default function CalendarPage() {
       } | null)[]
     | undefined
   >([]);
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState("upcoming");
+
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const isMobileDevice = /iPhone|iPad|iPod|Android|Windows Phone/i.test(
+      navigator.userAgent,
+    );
+    setIsMobile(isMobileDevice);
+  }, []);
 
   const {
     data: movies,
@@ -87,8 +95,8 @@ export default function CalendarPage() {
   return (
     <>
       <MovieCalendarLayout>
-        <div className="flex w-full py-6">
-          <p className="max-w-[60%] text-sm">
+        <div className="flex w-full flex-col px-2 py-6 lg:flex-row">
+          <p className="mb-2 w-full text-sm lg:mb-0 lg:max-w-[60%]">
             Create a list on{" "}
             <a href="https://letterboxd.com" target="_blank">
               Letterboxd
@@ -96,9 +104,14 @@ export default function CalendarPage() {
             with the name &quot;Release Calendar&quot; then enter your
             Letterboxd username and click on the{" "}
             <RefreshCcw className="inline" size={14} /> button to see the films
-            in that list displayed on the calendar
+            in that list displayed on the calendar.
+            <strong>
+              {" "}
+              Note: Only the first 10 entries of the list will appear in the
+              calendar.
+            </strong>
           </p>
-          <div className="ml-auto flex max-w-[240px] flex-row items-center">
+          <div className="ml-auto flex w-full flex-row items-center lg:max-w-[240px]">
             <Input
               className="border-none bg-[#2c3440] ring-0 ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0"
               type="text"
@@ -121,8 +134,8 @@ export default function CalendarPage() {
           </div>
         </div>
 
-        <div className="flex w-full">
-          <div className="w-9/12">
+        <div className="flex w-full flex-col px-2 lg:flex-row lg:px-0">
+          <div className="w-full lg:w-9/12">
             <FullCalendar
               ref={calendarRef}
               plugins={[dayGridPlugin, interactionPlugin, multiMonthPlugin]}
@@ -132,17 +145,13 @@ export default function CalendarPage() {
                 // right: "dayGridMonth",
                 right: "",
               }}
+              height={isMobile ? 500 : 800}
               initialView="dayGridMonth"
               nowIndicator={true}
               editable={true}
               selectable={true}
               selectMirror={true}
-              multiMonthMaxColumns={1} // force a single column
-              // resources={[
-              //   { id: 'a', title: 'Auditorium A' },
-              //   { id: 'b', title: 'Auditorium B', eventColor: 'green' },
-              //   { id: 'c', title: 'Auditorium C', eventColor: 'orange' },
-              // ]}
+              multiMonthMaxColumns={1}
               initialEvents={movies?.map((movie) => ({
                 title: movie?.title,
                 start: new Date(movie?.data?.release_date ?? ""),
@@ -150,7 +159,7 @@ export default function CalendarPage() {
             />
           </div>
 
-          <div className="mt-5 w-3/12 px-4">
+          <div className="mt-5 w-full px-4 lg:w-3/12">
             <Select defaultValue={filter} onValueChange={setFilter}>
               <SelectTrigger className="w-[180px] border-none bg-[#2c3440] ring-0 ring-offset-0 focus:ring-0 focus:ring-offset-0">
                 <SelectValue />
@@ -178,9 +187,13 @@ export default function CalendarPage() {
                     alt={`${movie?.title} poster`}
                   />
                   <div className="ml-2 flex flex-col">
-                    <p className="text-2xl font-bold text-white">
+                    <a
+                      className="text-2xl font-bold text-white hover:text-[#38abf1]"
+                      href={movie?.url}
+                      target="_blank"
+                    >
                       {movie?.title}
-                    </p>
+                    </a>
                     <p className="font-sans">
                       {format(
                         new Date(movie?.data?.release_date + " 00:00:00") ??
