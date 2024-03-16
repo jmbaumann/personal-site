@@ -74,9 +74,9 @@ export default function CalendarPage() {
     addEvents();
   }, [filteredMovies]);
 
-  useEffect(() => {
-    handleUsername();
-  }, [username]);
+  // useEffect(() => {
+  //   handleUsername();
+  // }, [username]);
 
   const calendarRef = useRef<FullCalendar>(null);
 
