@@ -1,13 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import {
-  Twitter,
-  Youtube,
-  Instagram,
-  Download,
-  Github,
-  Clapperboard,
-} from "lucide-react";
+import TMDBLogo from "~/components/TMDBLogo";
 
 export default function MovieCalendarLayout({
   children,
@@ -26,8 +19,8 @@ export default function MovieCalendarLayout({
         <div className="mx-auto lg:w-11/12">{children}</div>
       </main>
 
-      <footer className="mt-2 flex w-full justify-center bg-[#2c3440]">
-        <div className="mt-2 w-[80%] text-xs opacity-80">
+      <footer className="mt-2 flex w-full items-center justify-center bg-[#2c3440]">
+        <div className="mt-2 text-xs opacity-80">
           Made by{" "}
           <Link href="/" target="_blank" className="underline">
             Jeremy Baumann
@@ -40,7 +33,7 @@ export default function MovieCalendarLayout({
           >
             Letterboxd
           </a>
-          . Movie data from{" "}
+          . This product uses the TMDB API but is not endorsed or certified by{" "}
           <a
             href="https://themoviedb.org"
             target="_blank"
@@ -49,6 +42,9 @@ export default function MovieCalendarLayout({
             TMDB
           </a>
           .
+        </div>
+        <div className="ml-2 mt-2 flex h-5 w-20">
+          <TMDBLogo />
         </div>
       </footer>
     </div>

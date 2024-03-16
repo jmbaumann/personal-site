@@ -45,6 +45,7 @@ export default function CalendarPage() {
     data: movies,
     refetch,
     isFetching,
+    error,
   } = api.letterboxdRSS.getFeed.useQuery(
     { username },
     { enabled: false, staleTime: 60 * 60 * 1000 },
@@ -111,26 +112,33 @@ export default function CalendarPage() {
               calendar.
             </strong>
           </p>
-          <div className="ml-auto flex w-full flex-row items-center lg:max-w-[240px]">
-            <Input
-              className="border-none bg-[#2c3440] ring-0 ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0"
-              type="text"
-              placeholder="Letterboxd Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            <Button
-              variant="outline"
-              size="icon"
-              className="ml-2 border-none bg-[#1ce043] text-white ring-0 ring-offset-0 hover:bg-[#13ad32] hover:text-white focus:ring-0 focus:ring-offset-0"
-              onClick={handleUsername}
-            >
-              {isFetching ? (
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              ) : (
-                <RefreshCcw className="h-4 w-4" />
-              )}
-            </Button>
+          <div className="ml-auto flex w-full flex-col lg:max-w-[240px]">
+            <div className="flex flex-row items-center">
+              <Input
+                className="border-none bg-[#2c3440] ring-0 ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+                type="text"
+                placeholder="Letterboxd Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+              <Button
+                variant="outline"
+                size="icon"
+                className="ml-2 border-none bg-[#1ce043] text-white ring-0 ring-offset-0 hover:bg-[#13ad32] hover:text-white focus:ring-0 focus:ring-offset-0"
+                onClick={handleUsername}
+              >
+                {isFetching ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <RefreshCcw className="h-4 w-4" />
+                )}
+              </Button>
+            </div>
+            {error && (
+              <p className="ml-2 font-sans text-xs text-red-600">
+                {error?.message}
+              </p>
+            )}
           </div>
         </div>
 
