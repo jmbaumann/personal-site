@@ -30,6 +30,7 @@ export default function Projects() {
           <h1 className="mt-10 text-2xl font-bold">Projects</h1>
           <div>
             <InReview />
+            <LetterboxdCalendar />
             <Consensu5 />
             <Roshambodle />
             <ThisSite />
@@ -130,6 +131,87 @@ export function InReview() {
           className="bg-white text-emerald-800 hover:text-white"
           onClick={() =>
             window.open("https://kindafunnyinreview.com", "_blank")
+          }
+        >
+          <ExternalLink size={24} className="mr-2 h-4 w-4" />
+          Visit site
+        </Button>
+      </CardFooter>
+    </Card>
+  );
+}
+
+export function LetterboxdCalendar() {
+  return (
+    <Card className="mt-4 bg-emerald-800 text-white">
+      <CardHeader className="text-xl">
+        <CardTitle>Letterboxd Release Calendar</CardTitle>
+      </CardHeader>
+      <CardContent className="text-sm">
+        <div className="flex w-full flex-row">
+          <div className="flex flex-col">
+            <p className="pr-2">
+              I wanted to visualize upcoming movie releases that I plan on
+              seeing in theaters and thought I&apos;d try to incorporate my{" "}
+              <a
+                className="underline"
+                href="https://letterboxd.com"
+                target="_blank"
+              >
+                Letterboxd
+              </a>{" "}
+              watchlist. Ultimately I ended up using their RSS feed to find a
+              list named &quot;Release Calendar&quot; and putting that data into
+              both a calendar and a list view. Unfortunately this approach
+              limits me to just the first 10 entries in the Letterboxd list, but
+              it&apos;s still pretty useful. Especially considering this was
+              something I thought of after leaving{" "}
+              <a
+                className="underline"
+                href="https://letterboxd.com/film/love-lies-bleeding-2024/"
+                target="_blank"
+              >
+                Love Lies Bleeding
+              </a>{" "}
+              at 6:30pm and had it up and running before midnight.
+            </p>
+
+            <hr className="my-2 w-full lg:my-4" />
+
+            <div className="flex flex-col lg:flex-row">
+              <div className="ml-2">
+                <h3 className="text-lg">Stack</h3>
+                <ul className="ml-2 flex list-disc flex-wrap justify-evenly lg:block">
+                  <li className="mx-2">Typescript</li>
+                  <li className="mx-2">React (Next.js)</li>
+                  <li className="mx-2">Tailwind CSS</li>
+                  <li className="mx-2">shadcn/ui</li>
+                  <li className="mx-2">tRPC</li>
+                  <li className="mx-2">Vercel</li>
+                  <li className="mx-2">Letterboxd RSS feed</li>
+                  <li className="mx-2">
+                    <a href="https://themoviedb.org" target="_blank">
+                      TMBD API
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <Image
+                className="ml-auto mr-4"
+                src="https://jbaumann-personal.s3.us-west-1.amazonaws.com/letterboxd-calendar.png"
+                width={400}
+                height={200}
+                alt="Letterboxd Release Calendar Screenshot"
+              />
+            </div>
+          </div>
+        </div>
+      </CardContent>
+      <CardFooter>
+        <Button
+          className="bg-white text-emerald-800 hover:text-white"
+          onClick={() =>
+            window.open("https://jeremybaumann.me/movie-calendar", "_blank")
           }
         >
           <ExternalLink size={24} className="mr-2 h-4 w-4" />
