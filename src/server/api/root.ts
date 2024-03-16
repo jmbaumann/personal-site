@@ -1,3 +1,4 @@
+import { letterboxdRSSRouter } from "~/server/api/routers/letterboxd-rss";
 import { postRouter } from "~/server/api/routers/post";
 import { createTRPCRouter } from "~/server/api/trpc";
 
@@ -8,6 +9,7 @@ import { createTRPCRouter } from "~/server/api/trpc";
  */
 export const appRouter = createTRPCRouter({
   post: postRouter,
+  letterboxdRSS: letterboxdRSSRouter,
 });
 
 // export type definition of API

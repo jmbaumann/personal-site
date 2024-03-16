@@ -8,7 +8,7 @@ await import("./src/env.js");
 const config = {
   reactStrictMode: true,
   images: {
-    domains: ["jbaumann-personal.s3.us-west-1.amazonaws.com"],
+    domains: ["jbaumann-personal.s3.us-west-1.amazonaws.com", "image.tmdb.org"],
     formats: ["image/avif", "image/webp"],
   },
 
