@@ -30,9 +30,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             >
               Projects
             </Link>
-            <Link href="/blog" className="mx-1 text-lg hover:underline lg:mx-2">
+            {/* <Link href="/blog" className="mx-1 text-lg hover:underline lg:mx-2">
               Blog
-            </Link>
+            </Link> */}
 
             <div className="ml-auto flex flex-row items-center">
               {/* <button className="mr-2 flex items-center rounded-md bg-emerald-800 px-2 py-2 text-sm text-white">

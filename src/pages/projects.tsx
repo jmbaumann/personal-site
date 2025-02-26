@@ -29,6 +29,7 @@ export default function Projects() {
         <div className="px-4 text-xl lg:px-16">
           <h1 className="mt-10 text-2xl font-bold">Projects</h1>
           <div>
+            <BigMovieBois />
             <InReview />
             <LetterboxdCalendar />
             <Consensu5 />
@@ -38,6 +39,120 @@ export default function Projects() {
         </div>
       </Layout>
     </>
+  );
+}
+
+export function BigMovieBois() {
+  return (
+    <Card className="mt-4 bg-emerald-800 text-white">
+      <CardHeader className="text-xl">
+        <CardTitle>Big Movie Bois</CardTitle>
+      </CardHeader>
+      <CardContent className="text-sm">
+        <div className="flex w-full flex-row">
+          <div className="flex flex-col">
+            <p className="pb-2 pr-2">
+              Launched early in 2025, bigmoviebois.com has several features with
+              more still in development. Its flagship feature is Fantasy Film
+              Leagues which is a spin on Fantasy Football but instead of
+              managing a team & drafting players, you manage a Studio & draft
+              upcoming Films.
+            </p>
+            <p className="pr-2">
+              There's also a daily game called Overlap, Award Show Pick 'Ems, &
+              bi-weekly Tournaments. You can watch more features get developed
+              live on the{" "}
+              <a
+                className="underline"
+                href="https://twitch.tv/bigmoviebois"
+                target="_blank"
+              >
+                BigMovieBois Twitch channel
+              </a>{" "}
+              (& talk about movies too).
+            </p>
+
+            <hr className="my-2 w-full lg:my-4" />
+
+            <div className="flex flex-col lg:flex-row">
+              <div className="ml-2">
+                <h3 className="text-lg">Stack</h3>
+                <ul className="ml-2 flex list-disc flex-wrap justify-evenly lg:block">
+                  <li className="mx-2">Typescript</li>
+                  <li className="mx-2">React (Next.js)</li>
+                  <li className="mx-2">Tailwind CSS</li>
+                  <li className="mx-2">shadcn/ui</li>
+                  <li className="mx-2">tRPC</li>
+                  <li className="mx-2">Prisma</li>
+                  <li className="mx-2">PostgreSQL (Supabase)</li>
+                  <li className="mx-2">Vercel</li>
+                  <li className="mx-2">TMDB API</li>
+                </ul>
+              </div>
+
+              <Carousel className="lg:ml-auto lg:mr-12 lg:w-[400px]">
+                <CarouselContent>
+                  <CarouselItem className="items-center">
+                    <Image
+                      src="https://jbaumann-personal.s3.us-west-1.amazonaws.com/bmb-1.png"
+                      width={400}
+                      height={200}
+                      alt="Big Movie Bois Screenshot #1"
+                    />
+                  </CarouselItem>
+                  <CarouselItem className="items-center">
+                    <Image
+                      src="https://jbaumann-personal.s3.us-west-1.amazonaws.com/bmb-2.png"
+                      width={400}
+                      height={200}
+                      alt="Big Movie Bois Screenshot #2"
+                    />
+                  </CarouselItem>
+                  <CarouselItem>
+                    <Image
+                      src="https://jbaumann-personal.s3.us-west-1.amazonaws.com/bmb-3.png"
+                      width={400}
+                      height={200}
+                      alt="Big Movie Bois Screenshot #3"
+                    />
+                  </CarouselItem>
+                  <CarouselItem>
+                    <Image
+                      src="https://jbaumann-personal.s3.us-west-1.amazonaws.com/bmb-4.png"
+                      width={400}
+                      height={200}
+                      alt="Big Movie Bois Screenshot #4"
+                    />
+                  </CarouselItem>
+                  <CarouselItem>
+                    <Image
+                      src="https://jbaumann-personal.s3.us-west-1.amazonaws.com/bmb-5.png"
+                      width={400}
+                      height={200}
+                      alt="Big Movie Bois Screenshot #5"
+                    />
+                  </CarouselItem>
+                </CarouselContent>
+                <CarouselPrevious className="hidden text-black lg:inline-flex" />
+                <CarouselNext className="hidden text-black lg:inline-flex" />
+              </Carousel>
+            </div>
+            <small className="text-center lg:hidden">
+              Swipe to view more images
+            </small>
+          </div>
+        </div>
+      </CardContent>
+      <CardFooter>
+        <Button
+          className="bg-white text-emerald-800 hover:text-white"
+          onClick={() => window.open("https://bigmoviebois.com", "_blank")}
+        >
+          <ExternalLink size={24} className="mr-2 h-4 w-4" />
+          Visit site
+        </Button>
+      </CardFooter>
+    </Card>
   );
 }
 
@@ -77,7 +192,7 @@ export function InReview() {
                   <li className="mx-2">tRPC</li>
                   <li className="mx-2">Prisma</li>
                   <li className="mx-2">Vercel</li>
-                  <li className="mx-2">PlanetScale</li>
+                  <li className="mx-2">MySQL</li>
                   <li className="mx-2">OMDb API</li>
                 </ul>
               </div>

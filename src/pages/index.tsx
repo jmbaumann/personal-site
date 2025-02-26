@@ -1,5 +1,5 @@
 import Layout from "~/layouts/Layout";
-import { InReview } from "./projects";
+import { BigMovieBois } from "./projects";
 import Head from "next/head";
 
 export default function Home() {
@@ -16,7 +16,7 @@ export default function Home() {
           <p>Sometimes I even finish them.</p>
 
           <h1 className="mt-10 text-2xl font-bold">Featured Project</h1>
-          <InReview />
+          <BigMovieBois />
         </div>
       </Layout>
     </>
