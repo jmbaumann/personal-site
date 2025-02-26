@@ -59,9 +59,9 @@ export function BigMovieBois() {
               upcoming Films.
             </p>
             <p className="pr-2">
-              There's also a daily game called Overlap, Award Show Pick 'Ems, &
-              bi-weekly Tournaments. You can watch more features get developed
-              live on the{" "}
+              There&apos;s also a daily game called Overlap, Award Show Pick
+              &apos;Ems, & bi-weekly Tournaments. You can watch more features
+              get developed live on the{" "}
               <a
                 className="underline"
                 href="https://twitch.tv/bigmoviebois"
